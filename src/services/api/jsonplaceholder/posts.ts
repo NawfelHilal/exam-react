@@ -1,3 +1,5 @@
+import { Link, useNavigate } from "react-router-dom";
+
 export const rootUrl = "https://jsonplaceholder.typicode.com";
 export const postsUrl = `${rootUrl}/posts`;
 
@@ -15,6 +17,7 @@ export const fetchPost = async (postId: string) => {
   const response = await fetch(`${postsUrl}/${postId}`);
   if (!response.ok) {
     throw new Error("Failed to fetch post");
+
   }
   console.log(response);
   return response.json();

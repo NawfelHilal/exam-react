@@ -2,6 +2,8 @@ import { useParams, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchUser } from "../../../services/api/jsonplaceholder/users";
 import User from "../../../models/User";
+import { isValidId } from "../../../utils/valiators";
+import UserCard from "../../../components/UserCard";
 
 const PostOwnerPage = () => {
   const { userId } = useParams();
@@ -10,18 +12,19 @@ const PostOwnerPage = () => {
 
   useEffect(() => {
     const loadUser = async () => {
-      if (!userId || !Number.isInteger(Number(userId)) || Number(userId) <= 0) {
+      if (!isValidId(userId)) {
         setError(true);
         return;
       }
-
+  
       try {
-        const fetchedUser = await fetchUser(userId);
+        const fetchedUser = await fetchUser(userId as string);
         setUser(fetchedUser);
       } catch {
         setError(true);
       }
     };
+  
     loadUser();
   }, [userId]);
 
@@ -35,9 +38,7 @@ const PostOwnerPage = () => {
 
   return (
     <div>
-      <h2>{user.name}</h2>
-      <p>{user.username}</p>
-      <p>{user.email}</p>
+        <UserCard name={user.name} username={user.username} email={user.email} />
     </div>
   );
 };
