@@ -1,0 +1,11 @@
+.post{
+    align-self: center;
+  display: flex;
+  justify-content: center;
+}
+
+.ul-post{
+    display: flex;
+  gap: 20px;
+  list-style: none;
+}

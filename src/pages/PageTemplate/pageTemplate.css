@@ -1,0 +1,8 @@
+.navig{
+    display: flex;
+    align-items: baseline;
+}
+
+.title{
+    margin-right: 30px;
+}
