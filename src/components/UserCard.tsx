@@ -8,8 +8,8 @@ type UserCardProps = {
     return (
       <div>
         <h2>{name}</h2>
-        <p>Username: {username}</p>
-        <p>Email: {email}</p>
+        <p>{username}</p>
+        <p>{email}</p>
       </div>
     );
   };

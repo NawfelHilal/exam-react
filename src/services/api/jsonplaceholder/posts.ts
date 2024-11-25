@@ -1,4 +1,3 @@
-import { Link, useNavigate } from "react-router-dom";
 
 export const rootUrl = "https://jsonplaceholder.typicode.com";
 export const postsUrl = `${rootUrl}/posts`;
